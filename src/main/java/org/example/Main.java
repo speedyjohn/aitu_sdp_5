@@ -38,10 +38,11 @@ public class Main {
         EffectVisitor boostVisitor = new BoostVisitor();
         EffectVisitor damageVisitor = new DamageVisitor();
 
-        boostVisitor.applyBoost(hero);
+        hero.acceptEffect(boostVisitor);
         hero.attack();
+        System.out.println();
 
-        damageVisitor.applyDamage(hero);
+        hero.acceptEffect(damageVisitor);
         hero.attack();
     }
 }

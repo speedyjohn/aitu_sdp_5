@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.example.Classes.CharacterStates.NormalState;
 import org.example.Classes.FirghtingStrategies.MeleeStrategy;
 import org.example.Interfaces.CharacterState;
+import org.example.Interfaces.EffectVisitor;
 import org.example.Interfaces.FightingStrategy;
 
 public class Character {
@@ -19,6 +20,11 @@ public class Character {
         this.name = name;
         this.state = new NormalState(this);
         this.strategy = new MeleeStrategy();
+    }
+
+    public void acceptEffect(EffectVisitor visitor) {
+        visitor.applyBoost(this);
+        visitor.applyDamage(this);
     }
 
     public void attack() {

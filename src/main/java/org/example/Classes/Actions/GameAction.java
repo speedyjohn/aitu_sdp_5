@@ -9,8 +9,13 @@ public abstract class GameAction {
         endAction();
     }
 
-    protected abstract void startAction();
+    protected void startAction() {
+        System.out.println("Preparing to the action.");
+    };
     protected abstract void performAction();
-    protected abstract void endAction();
+    protected void endAction() {
+        System.out.println("Action is finished.");
+    };
+
 
 }
